@@ -1,5 +1,6 @@
 
 import React from 'react';
+import logo from '../assets/logo.svg';
 
 interface HeroProps {
   name: string;
@@ -32,7 +33,7 @@ const Hero: React.FC<HeroProps> = ({ name, tagline, contact }) => {
              <div className="absolute -inset-12 bg-indigo-500/10 rounded-full blur-[80px] group-hover:bg-indigo-500/20 transition-all duration-1000"></div>
              <div className="relative w-32 h-32 md:w-44 md:h-44 flex items-center justify-center transition-all duration-700 hover:scale-105 transform-gpu">
                <img 
-                 src="logo.png" 
+                 src={logo} 
                  alt="P.R.M. Shield" 
                  className="w-full h-full object-contain filter drop-shadow-[0_20px_40px_rgba(0,0,0,0.5)] brightness-110"
                />

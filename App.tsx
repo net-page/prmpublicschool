@@ -6,6 +6,7 @@ import Header from './components/Header';
 import Hero from './components/Hero';
 import Section from './components/Section';
 import Footer from './components/Footer';
+import logo from './assets/logo.svg';
 
 const App: React.FC = () => {
   const [state, setState] = useState<AppState>({
@@ -44,7 +45,7 @@ const App: React.FC = () => {
       <div className="min-h-screen flex flex-col items-center justify-center bg-slate-950">
         <div className="relative mb-10 w-24 h-24">
           <img 
-            src="logo.png" 
+            src={logo} 
             alt="Loading..." 
             className="w-full h-full object-contain animate-pulse filter drop-shadow-[0_0_15px_rgba(99,102,241,0.5)]"
           />

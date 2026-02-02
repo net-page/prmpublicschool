@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import logo from '../assets/logo.svg';
 
 interface HeaderProps {
   schoolName: string;
@@ -91,7 +92,7 @@ const Header: React.FC<HeaderProps> = ({ schoolName }) => {
           <a href="#" className="flex items-center gap-3 group" onClick={(e) => handleLinkClick(e, '#')}>
             <div className={`relative flex items-center justify-center transition-all duration-500 ${scrolled ? 'w-10 h-10' : 'w-12 h-12'}`}>
               <img 
-                src="logo.png" 
+                src={logo} 
                 alt="Logo" 
                 className={`relative z-10 w-full h-full object-contain transition-all duration-300 ${scrolled || isMenuOpen ? 'filter drop-shadow-sm' : 'filter drop-shadow-md'}`}
               />

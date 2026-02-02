@@ -28,7 +28,7 @@ const Footer: React.FC<FooterProps> = ({ schoolName, groundingSources }) => {
           <div className="lg:col-span-2">
             <div className="flex items-center gap-5 mb-8">
               <div className="w-20 h-20 rounded-2xl bg-white/5 p-3 flex items-center justify-center border border-white/10 shadow-lg">
-                <img src="logo.png" alt="PRM logo" className="w-full h-full object-contain filter brightness-110" />
+                <img src={require('../assets/logo.svg').default} alt="PRM logo" className="w-full h-full object-contain filter brightness-110" />
               </div>
               <div className="flex flex-col">
                 <h3 className="text-2xl md:text-3xl font-bold text-white tracking-tighter uppercase">
