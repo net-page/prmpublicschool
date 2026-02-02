@@ -1,0 +1,28 @@
+/* Minimal global styles (served from repo root so Pages can find it)
+   Vite will copy this to the `dist/` folder so the path becomes %BASE%index.css
+*/
+
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  background: #fff;
+  color: #0f172a;
+}
+
+/* Make any fatal error message visible */
+#error-boundary {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem;
+  background: linear-gradient(180deg, rgba(79,70,229,0.02), rgba(79,70,229,0.01));
+}
+
+#error-boundary .card {
+  background: white; border-radius: 1rem; padding: 2rem; box-shadow: 0 10px 30px rgba(2,6,23,0.08);
+}
