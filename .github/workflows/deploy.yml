@@ -23,16 +23,24 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+      - name: Install dependencies
+        run: npm ci
+      - name: Build
+        run: npm run build
       - name: Setup Pages
         uses: actions/configure-pages@v4
-      - name: Upload artifact
+      - name: Upload artifact (unique per run)
         uses: actions/upload-pages-artifact@v3
         with:
-          # Using a unique name prevents 'Multiple artifacts named github-pages' error
-          name: prm-static-site
-          path: '.'
+          # Use a run-unique name to avoid conflicts when multiple artifacts exist
+          name: prm-static-${{ github.run_id }}
+          path: './dist'
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
         with:
-          artifact_name: prm-static-site
+          artifact_name: prm-static-${{ github.run_id }}
