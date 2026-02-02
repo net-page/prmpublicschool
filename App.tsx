@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
-import { fetchSchoolInfo } from './services/geminiService';
+import { fetchSchoolInfo } from './services/schoolService';
 import { AppState, SchoolData } from './types';
 import Header from './components/Header';
 import Hero from './components/Hero';
@@ -20,7 +20,10 @@ const App: React.FC = () => {
     const init = async () => {
       // Small delay for smooth intro on static hosting
       const data = await fetchSchoolInfo();
-      setState({ loading: false, error: null, data });
+      // Artificial slight delay for the loading animation to feel intentional
+      setTimeout(() => {
+        setState({ loading: false, error: null, data });
+      }, 500);
     };
 
     const handleScroll = () => {

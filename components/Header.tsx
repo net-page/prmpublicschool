@@ -16,6 +16,7 @@ const Header: React.FC<HeaderProps> = ({ schoolName }) => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Prevent body scroll when menu is open
   useEffect(() => {
     if (isMenuOpen) {
       document.body.style.overflow = 'hidden';
@@ -81,18 +82,18 @@ const Header: React.FC<HeaderProps> = ({ schoolName }) => {
 
   return (
     <>
-      <header className={`fixed top-0 left-0 right-0 z-[200] transition-all duration-500 ${
+      <header className={`fixed top-0 left-0 right-0 z-[600] transition-all duration-500 ${
         scrolled || isMenuOpen 
           ? 'bg-white shadow-xl py-2' 
           : 'bg-transparent py-4'
       }`}>
-        <div className="container mx-auto px-6 flex items-center justify-between">
-          <a href="#" className="flex items-center gap-3 z-[220] group" onClick={(e) => handleLinkClick(e, '#')}>
+        <div className="container mx-auto px-6 flex items-center justify-between relative z-[610]">
+          <a href="#" className="flex items-center gap-3 group" onClick={(e) => handleLinkClick(e, '#')}>
             <div className={`relative flex items-center justify-center transition-all duration-500 ${scrolled ? 'w-10 h-10' : 'w-12 h-12'}`}>
               <img 
                 src="logo.png" 
                 alt="Logo" 
-                className={`relative z-10 w-full h-full object-contain transition-all duration-300 ${scrolled || isMenuOpen ? '' : 'filter drop-shadow-md'}`}
+                className={`relative z-10 w-full h-full object-contain transition-all duration-300 ${scrolled || isMenuOpen ? 'filter drop-shadow-sm' : 'filter drop-shadow-md'}`}
               />
             </div>
             <div className="flex flex-col">
@@ -139,7 +140,7 @@ const Header: React.FC<HeaderProps> = ({ schoolName }) => {
 
           {/* Hamburger Button */}
           <button 
-            className="lg:hidden z-[220] p-4 -mr-4 focus:outline-none transition-transform active:scale-90"
+            className="lg:hidden p-4 -mr-4 focus:outline-none transition-transform active:scale-90"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             aria-label="Toggle Menu"
           >
@@ -151,52 +152,47 @@ const Header: React.FC<HeaderProps> = ({ schoolName }) => {
           </button>
         </div>
 
-        {/* Mobile Nav Overlay */}
-        <div className={`fixed inset-0 bg-white transition-all duration-500 ease-in-out lg:hidden z-[210] ${
+        {/* Mobile Nav Overlay - Fixed Solid Background */}
+        <div className={`fixed inset-0 bg-white transition-all duration-500 ease-in-out lg:hidden z-[550] flex flex-col h-screen ${
           isMenuOpen ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'
         }`}>
-          <div className="flex flex-col h-full overflow-y-auto">
-            <div className="flex-grow flex flex-col items-center justify-center gap-8 p-10 pt-24">
-              <div className="w-20 h-20 mb-2">
-                 <img src="logo.png" alt="PRM" className="w-full h-full object-contain filter drop-shadow-xl" />
-              </div>
-              {navItems.map((item, idx) => (
-                <a 
-                  key={item.label}
-                  href={item.href}
-                  onClick={(e) => handleLinkClick(e, item.href)}
-                  className={`text-2xl font-black text-indigo-950 uppercase tracking-[0.2em] transition-all transform ${isMenuOpen ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}
-                  style={{ transitionDelay: `${idx * 75}ms` }}
-                >
-                  {item.label}
-                </a>
-              ))}
+          <div className="flex-grow flex flex-col items-center justify-center gap-6 p-10 pt-24 overflow-y-auto">
+            {navItems.map((item, idx) => (
               <a 
-                href="https://drive.google.com/file/d/1XSsmnW2HWr0_wUculYjr3Y6JIRODZ5pp/view"
+                key={item.label}
+                href={item.href}
+                onClick={(e) => handleLinkClick(e, item.href)}
+                className={`text-xl font-black text-indigo-950 uppercase tracking-[0.2em] transition-all transform ${isMenuOpen ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}
+                style={{ transitionDelay: `${idx * 50}ms` }}
+              >
+                {item.label}
+              </a>
+            ))}
+            <a 
+              href="https://drive.google.com/file/d/1XSsmnW2HWr0_wUculYjr3Y6JIRODZ5pp/view"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`mt-4 px-8 py-4 rounded-2xl bg-indigo-900 text-white font-black text-xs uppercase tracking-widest shadow-xl transition-all transform ${isMenuOpen ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}
+              style={{ transitionDelay: `${navItems.length * 50}ms` }}
+            >
+              Admissions
+            </a>
+          </div>
+
+          {/* Mobile Footer / Social Icons */}
+          <div className={`flex items-center justify-center gap-8 p-12 border-t border-slate-100 bg-slate-50 transition-all duration-700 delay-300 ${isMenuOpen ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
+            {socialLinks.map((social) => (
+              <a 
+                key={social.name}
+                href={social.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`px-8 py-4 rounded-2xl bg-indigo-900 text-white font-black text-xs uppercase tracking-widest shadow-xl transition-all transform ${isMenuOpen ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}
-                style={{ transitionDelay: `${navItems.length * 75}ms` }}
+                className="text-indigo-900 hover:text-indigo-600 transition-all p-4 bg-white rounded-full shadow-sm hover:shadow-md active:scale-90"
+                aria-label={social.name}
               >
-                Admissions
+                {social.icon}
               </a>
-            </div>
-
-            {/* Restored Social Icons in Mobile Menu */}
-            <div className={`flex items-center justify-center gap-8 p-12 border-t border-slate-100 bg-slate-50 transition-all duration-700 delay-500 ${isMenuOpen ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
-              {socialLinks.map((social) => (
-                <a 
-                  key={social.name}
-                  href={social.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-indigo-900 hover:text-indigo-600 transition-all p-3 bg-white rounded-full shadow-sm hover:shadow-md active:scale-90"
-                  aria-label={social.name}
-                >
-                  {social.icon}
-                </a>
-              ))}
-            </div>
+            ))}
           </div>
         </div>
       </header>
