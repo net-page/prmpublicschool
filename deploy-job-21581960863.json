@@ -1,0 +1,132 @@
+﻿{
+    "id":  62181017243,
+    "run_id":  21581960863,
+    "workflow_name":  "Deploy to GitHub Pages",
+    "head_branch":  "main",
+    "run_url":  "https://api.github.com/repos/aaartisharma540-glitch/prmpublicschool/actions/runs/21581960863",
+    "run_attempt":  1,
+    "node_id":  "CR_kwDORGQP5M8AAAAOekcGmw",
+    "head_sha":  "43a3238c8e8f354df196a1e0d118593c02910313",
+    "url":  "https://api.github.com/repos/aaartisharma540-glitch/prmpublicschool/actions/jobs/62181017243",
+    "html_url":  "https://github.com/aaartisharma540-glitch/prmpublicschool/actions/runs/21581960863/job/62181017243",
+    "status":  "completed",
+    "conclusion":  "success",
+    "created_at":  "2026-02-02T08:00:46Z",
+    "started_at":  "2026-02-02T08:00:49Z",
+    "completed_at":  "2026-02-02T08:01:19Z",
+    "name":  "deploy",
+    "steps":  [
+                  {
+                      "name":  "Set up job",
+                      "status":  "completed",
+                      "conclusion":  "success",
+                      "number":  1,
+                      "started_at":  "2026-02-02T08:00:50Z",
+                      "completed_at":  "2026-02-02T08:00:52Z"
+                  },
+                  {
+                      "name":  "Checkout",
+                      "status":  "completed",
+                      "conclusion":  "success",
+                      "number":  2,
+                      "started_at":  "2026-02-02T08:00:52Z",
+                      "completed_at":  "2026-02-02T08:00:52Z"
+                  },
+                  {
+                      "name":  "Setup Node.js",
+                      "status":  "completed",
+                      "conclusion":  "success",
+                      "number":  3,
+                      "started_at":  "2026-02-02T08:00:52Z",
+                      "completed_at":  "2026-02-02T08:00:56Z"
+                  },
+                  {
+                      "name":  "Install dependencies",
+                      "status":  "completed",
+                      "conclusion":  "success",
+                      "number":  4,
+                      "started_at":  "2026-02-02T08:00:56Z",
+                      "completed_at":  "2026-02-02T08:00:58Z"
+                  },
+                  {
+                      "name":  "Configure Vite base for Pages",
+                      "status":  "completed",
+                      "conclusion":  "success",
+                      "number":  5,
+                      "started_at":  "2026-02-02T08:00:58Z",
+                      "completed_at":  "2026-02-02T08:00:58Z"
+                  },
+                  {
+                      "name":  "Build",
+                      "status":  "completed",
+                      "conclusion":  "success",
+                      "number":  6,
+                      "started_at":  "2026-02-02T08:00:58Z",
+                      "completed_at":  "2026-02-02T08:00:59Z"
+                  },
+                  {
+                      "name":  "Setup Pages",
+                      "status":  "completed",
+                      "conclusion":  "success",
+                      "number":  7,
+                      "started_at":  "2026-02-02T08:00:59Z",
+                      "completed_at":  "2026-02-02T08:01:00Z"
+                  },
+                  {
+                      "name":  "Upload artifact (unique per run)",
+                      "status":  "completed",
+                      "conclusion":  "success",
+                      "number":  8,
+                      "started_at":  "2026-02-02T08:01:00Z",
+                      "completed_at":  "2026-02-02T08:01:00Z"
+                  },
+                  {
+                      "name":  "Deduplicate github-pages artifacts (keep newest)",
+                      "status":  "completed",
+                      "conclusion":  "success",
+                      "number":  9,
+                      "started_at":  "2026-02-02T08:01:00Z",
+                      "completed_at":  "2026-02-02T08:01:12Z"
+                  },
+                  {
+                      "name":  "Deploy to GitHub Pages",
+                      "status":  "completed",
+                      "conclusion":  "success",
+                      "number":  10,
+                      "started_at":  "2026-02-02T08:01:12Z",
+                      "completed_at":  "2026-02-02T08:01:17Z"
+                  },
+                  {
+                      "name":  "Post Setup Node.js",
+                      "status":  "completed",
+                      "conclusion":  "success",
+                      "number":  19,
+                      "started_at":  "2026-02-02T08:01:17Z",
+                      "completed_at":  "2026-02-02T08:01:18Z"
+                  },
+                  {
+                      "name":  "Post Checkout",
+                      "status":  "completed",
+                      "conclusion":  "success",
+                      "number":  20,
+                      "started_at":  "2026-02-02T08:01:18Z",
+                      "completed_at":  "2026-02-02T08:01:18Z"
+                  },
+                  {
+                      "name":  "Complete job",
+                      "status":  "completed",
+                      "conclusion":  "success",
+                      "number":  21,
+                      "started_at":  "2026-02-02T08:01:18Z",
+                      "completed_at":  "2026-02-02T08:01:18Z"
+                  }
+              ],
+    "check_run_url":  "https://api.github.com/repos/aaartisharma540-glitch/prmpublicschool/check-runs/62181017243",
+    "labels":  [
+                   "ubuntu-latest"
+               ],
+    "runner_id":  1000000083,
+    "runner_name":  "GitHub Actions 1000000083",
+    "runner_group_id":  0,
+    "runner_group_name":  "GitHub Actions"
+}
