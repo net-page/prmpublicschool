@@ -45,10 +45,26 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           # Use a run-unique name to avoid conflicts when multiple artifacts exist
-          name: prm-static-${{ github.run_id }}
+          name: github-pages-${{ github.run_id }}
           path: './dist'
+      - name: Check for duplicate github-pages artifacts
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          RUN_ID: ${{ github.run_id }}
+          REPO: ${{ github.repository }}
+        run: |
+          echo "Listing artifacts for run $RUN_ID"
+          sudo apt-get update && sudo apt-get install -y jq
+          response=$(curl -s -H "Authorization: Bearer $GITHUB_TOKEN" "https://api.github.com/repos/$REPO/actions/runs/$RUN_ID/artifacts")
+          count=$(echo "$response" | jq '[.artifacts[] | select(.name | test("^github-pages"))] | length')
+          echo "Found $count artifacts named github-pages* in this run"
+          if [ "$count" -gt 1 ]; then
+            echo "Error: multiple github-pages artifacts found: $count"
+            echo "$response" | jq '.artifacts[] | {name: .name, id: .id}'
+            exit 1
+          fi
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
         with:
-          artifact_name: prm-static-${{ github.run_id }}
+          artifact_name: github-pages-${{ github.run_id }}
