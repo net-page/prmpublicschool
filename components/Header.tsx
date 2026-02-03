@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-const logoUrl = new URL('../assets/logo.svg', import.meta.url).href;
+const logoUrl = new URL('../assets/logo.jpg', import.meta.url).href;
 
 interface HeaderProps {
   schoolName: string;

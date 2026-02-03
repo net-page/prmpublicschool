@@ -6,7 +6,7 @@ import Header from './components/Header';
 import Hero from './components/Hero';
 import Section from './components/Section';
 import Footer from './components/Footer';
-const logoUrl = new URL('./assets/logo.svg', import.meta.url).href;
+const logoUrl = new URL('./assets/logo.jpg', import.meta.url).href;
 
 const App: React.FC = () => {
   const [state, setState] = useState<AppState>({
